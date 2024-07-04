@@ -1,0 +1,96 @@
+@import '~@angular/material/theming';
+@include mat-core();
+
+// Define Rick and Morty colors
+$rick-green: #97ce4c;
+$morty-yellow: #f5b700;
+$dark-background: #3e3e3e;
+$text-color: #ffffff;
+$foreground-color: #81e4ff;
+
+// Define custom palettes
+$primary: mat-palette($mat-light-green, 700, 500, 900); // Verde para el tema primario
+$accent: mat-palette($mat-amber, A200, A100, A400); // Amarillo para el tema de acento
+$warn: mat-palette($mat-red);
+
+// Custom dark theme
+$rick-and-morty-theme: mat-dark-theme(
+  (
+    color: (
+      primary: $primary,
+      accent: $accent,
+      warn: $warn,
+      background: (
+        default: $dark-background,
+        app-bar: $dark-background,
+        status-bar: $dark-background,
+        card: $dark-background,
+        dialog: $dark-background,
+        hover: lighten($dark-background, 5%),
+        disabled-button: $dark-background,
+        raised-button: $dark-background,
+        focused-button: $dark-background,
+        selected-button: $dark-background,
+        selected-disabled-button: $dark-background,
+        disabled-text: rgba($text-color, 0.5)
+      ),
+      foreground: (
+        base: $text-color,
+        divider: $foreground-color,
+        dividers: $foreground-color,
+        disabled: rgba($text-color, 0.5),
+        disabled-text: rgba($text-color, 0.5),
+        elevation: $foreground-color,
+        hint-text: rgba($text-color, 0.5),
+        secondary-text: rgba($text-color, 0.7),
+        icon: $foreground-color,
+        icons: $foreground-color,
+        text: $text-color,
+        slider-min: rgba($text-color, 0.7),
+        slider-off: rgba($text-color, 0.7),
+        slider-off-active: rgba($text-color, 0.7)
+      )
+    )
+  )
+);
+
+@include angular-material-theme($rick-and-morty-theme);
+
+// Global styles for the application
+body {
+  background-color: $dark-background; /* Matches the $dark-background in theme */
+  font-family: 'Arial', sans-serif;
+  color: $text-color; /* Matches the $text-color in theme */
+  margin: 0;
+  padding: 0;
+}
+
+/* Ensure the default link color matches the theme */
+a {
+  color: $foreground-color; /* Matches the $foreground-color in theme */
+  text-decoration: none;
+}
+
+a:hover {
+  color: $rick-green; /* Accent color when hovering */
+}
+
+/* Ensuring buttons are consistent */
+button {
+  background-color: $rick-green; /* Matches the $primary color in theme */
+  color: $text-color; /* Text color */
+  border: none;
+  padding: 10px 20px;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+button:hover {
+  background-color: $foreground-color; /* Hover state color */
+  color: $dark-background !important;
+}
+
+button.mat-button {
+  color: $foreground-color; /* Matches the $foreground-color in theme */
+}

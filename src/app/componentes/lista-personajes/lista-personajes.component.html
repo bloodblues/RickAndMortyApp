@@ -1,6 +1,8 @@
 <div class="container">
   <h1>Lista de Personajes</h1>
   
+  <button mat-raised-button color="primary" class="create-button" (click)="createCharacter()">Crear Nuevo Personaje</button>
+  
   <!-- Tabla para pantallas grandes -->
   <table mat-table [dataSource]="currentPageCharacters" class="mat-elevation-z8 desktop-view">
     <ng-container matColumnDef="id">

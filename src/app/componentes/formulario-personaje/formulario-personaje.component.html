@@ -1,1 +1,81 @@
-<p>formulario-personaje works!</p>
+<div class="form-container">
+  <form [formGroup]="characterForm" (ngSubmit)="onSubmit()">
+    <mat-form-field appearance="fill">
+      <mat-label>Nombre</mat-label>
+      <input matInput formControlName="name">
+      <mat-error *ngIf="characterForm.get('name')?.hasError('required')">
+        El nombre es obligatorio.
+      </mat-error>
+    </mat-form-field>
+
+    <mat-form-field appearance="fill">
+      <mat-label>Especie</mat-label>
+      <mat-select formControlName="species">
+        <mat-option *ngFor="let species of speciesList" [value]="species">{{species}}</mat-option>
+      </mat-select>
+      <mat-error *ngIf="characterForm.get('species')?.hasError('required')">
+        La especie es obligatoria.
+      </mat-error>
+    </mat-form-field>
+
+    <mat-form-field appearance="fill">
+      <mat-label>Estado</mat-label>
+      <mat-select formControlName="status">
+        <mat-option *ngFor="let status of statusList" [value]="status">{{status}}</mat-option>
+      </mat-select>
+      <mat-error *ngIf="characterForm.get('status')?.hasError('required')">
+        El estado es obligatorio.
+      </mat-error>
+    </mat-form-field>
+
+    <mat-form-field appearance="fill">
+      <mat-label>Género</mat-label>
+      <mat-select formControlName="gender">
+        <mat-option *ngFor="let gender of genderList" [value]="gender">{{gender}}</mat-option>
+      </mat-select>
+      <mat-error *ngIf="characterForm.get('gender')?.hasError('required')">
+        El género es obligatorio.
+      </mat-error>
+    </mat-form-field>
+
+    <mat-form-field appearance="fill">
+      <mat-label>Origen</mat-label>
+      <input type="text" matInput formControlName="origin" [matAutocomplete]="autoOrigin">
+      <mat-autocomplete #autoOrigin="matAutocomplete" [displayWith]="displayFn">
+        <mat-option *ngFor="let option of filteredOriginOptions | async" [value]="option">
+          {{option}}
+        </mat-option>
+      </mat-autocomplete>
+      <mat-error *ngIf="characterForm.get('origin')?.hasError('required')">
+        El origen es obligatorio.
+      </mat-error>
+    </mat-form-field>
+
+    <mat-form-field appearance="fill">
+      <mat-label>Ubicación Actual</mat-label>
+      <input type="text" matInput formControlName="location" [matAutocomplete]="autoLocation">
+      <mat-autocomplete #autoLocation="matAutocomplete" [displayWith]="displayFn">
+        <mat-option *ngFor="let option of filteredLocationOptions | async" [value]="option">
+          {{option}}
+        </mat-option>
+      </mat-autocomplete>
+      <mat-error *ngIf="characterForm.get('location')?.hasError('required')">
+        La ubicación es obligatoria.
+      </mat-error>
+    </mat-form-field>
+
+    <div *ngIf="currentImageUrl" class="current-image">
+      <img [src]="currentImageUrl" alt="Current Image">
+    </div>
+
+    <mat-form-field appearance="fill">
+      <mat-label>Imagen</mat-label>
+      <input type="text" matInput formControlName="image">
+    </mat-form-field>
+
+    <div class="form-actions">
+      <button mat-raised-button color="primary" type="submit">Guardar</button>
+      <button mat-button type="button" (click)="goBack()">Cancelar</button>
+    </div>
+  </form>
+</div>

@@ -5,11 +5,12 @@ import { DetallesPersonajeComponent } from './componentes/detalles-personaje/det
 import { FormularioPersonajeComponent } from './componentes/formulario-personaje/formulario-personaje.component';
 
 const routes: Routes = [
-  { path: '', redirectTo: '/personajes', pathMatch: 'full' },
   { path: 'personajes', component: ListaPersonajesComponent },
   { path: 'character/:id', component: DetallesPersonajeComponent },
   { path: 'edit-character/:id', component: FormularioPersonajeComponent },
   { path: 'create-character', component: FormularioPersonajeComponent },
+  { path: '', redirectTo: '/personajes', pathMatch: 'full' },
+  { path: '**', redirectTo: '/personajes' },
 ];
 
 @NgModule({

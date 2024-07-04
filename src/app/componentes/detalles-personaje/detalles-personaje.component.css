@@ -2,7 +2,7 @@
   max-width: 800px;
   margin: 40px auto;
   padding: 20px;
-  background-color: #3e3e3e; /* Fondo gris oscuro */
+  background-color: #3e3e3e; 
   color: #ffffff;
   border-radius: 10px;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
@@ -22,7 +22,7 @@ p {
 
 button {
   margin-top: 20px;
-  background-color: #61dafb; /* Azul claro */
+  background-color: #61dafb;
   color: #000000;
   font-size: 16px;
   padding: 10px 20px;
@@ -30,7 +30,7 @@ button {
 }
 
 button:hover {
-  background-color: #81e4ff; /* Azul más claro */
+  background-color: #81e4ff; 
 }
 
 @media (max-width: 600px) {

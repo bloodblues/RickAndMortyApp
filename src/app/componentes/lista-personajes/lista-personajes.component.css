@@ -8,7 +8,7 @@
 table {
   width: 100%;
   margin: 20px auto;
-  background-color: #3e3e3e; /* Fondo gris oscuro */
+  background-color: #3e3e3e; 
   color: #ffffff;
   border-collapse: collapse;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
@@ -16,46 +16,46 @@ table {
 
 th, td {
   padding: 15px;
-  border: 1px solid #61dafb; /* Azul claro */
+  border: 1px solid #61dafb; 
 }
 
 th {
-  background-color: #0d47a1; /* Azul oscuro para mayor contraste */
+  background-color: #0d47a1; 
   color: #ffffff;
   font-weight: bold;
-  padding: 20px; /* Más margen en la cabecera */
+  padding: 20px; 
   text-align: center;
 }
 
 td {
-  background-color: #424242; /* Fondo gris más oscuro */
+  background-color: #424242; 
   color: #ffffff;
 }
 
 .mat-header-center {
-  text-align: center; /* Centrar el contenido en el encabezado */
+  text-align: center; 
 }
 
 .mat-header-left {
-  text-align: left; /* Alinear a la izquierda el encabezado */
+  text-align: left; 
   padding-left: 20px;
 }
 
 .mat-cell-center {
-  text-align: center; /* Centrar el contenido en las celdas */
+  text-align: center; 
 }
 
 .mat-cell-left {
-  text-align: left; /* Alinear a la izquierda el contenido en las celdas */
-  padding-left: 20px; /* Añadir margen a la izquierda */
+  text-align: left; 
+  padding-left: 20px; 
 }
 
 button {
-  color: #61dafb; /* Azul claro */
+  color: #61dafb;
 }
 
 button:hover {
-  color: #81e4ff; /* Azul más claro */
+  color: #21393f; 
 }
 
 .pagination-controls {
@@ -96,7 +96,7 @@ button:hover {
 .action-buttons button {
   width: 100%;
   padding: 10px;
-  background-color: #0d47a1;
+  background-color: #49aec9;
   color: white;
   border: none;
   border-radius: 4px;
@@ -105,7 +105,15 @@ button:hover {
 }
 
 .action-buttons button:hover {
-  background-color: #1565c0;
+  background-color: #689f38;
+  color: #ffffff!important;
+}
+
+.create-button {
+  margin: 20px 0;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
 }
 
 /* Media query para cambiar entre vistas */
@@ -127,4 +135,9 @@ button:hover {
     align-items: center;
     gap: 10px;
   }
+
+  .create-button {
+    width: 100%;
+  }
+
 }

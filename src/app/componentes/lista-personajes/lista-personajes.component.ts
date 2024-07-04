@@ -64,4 +64,8 @@ export class ListaPersonajesComponent implements OnInit {
     this.rickAndMortyService.deleteCharacter(id);
     this.loadCurrentPageCharacters();
   }
+
+  createCharacter(): void {
+    this.router.navigate(['/create-character']);
+  }
 }
