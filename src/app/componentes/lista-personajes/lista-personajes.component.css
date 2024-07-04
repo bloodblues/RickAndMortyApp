@@ -8,7 +8,7 @@
 table {
   width: 100%;
   margin: 20px auto;
-  background-color: #3e3e3e;
+  background-color: #3e3e3e; /* Fondo gris oscuro */
   color: #ffffff;
   border-collapse: collapse;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
@@ -16,45 +16,46 @@ table {
 
 th, td {
   padding: 15px;
-  border: 1px solid #61dafb; 
+  border: 1px solid #61dafb; /* Azul claro */
 }
 
 th {
-  background-color: #0d47a1; 
+  background-color: #0d47a1; /* Azul oscuro para mayor contraste */
   color: #ffffff;
   font-weight: bold;
-  padding: 20px; 
+  padding: 20px; /* Más margen en la cabecera */
+  text-align: center;
 }
 
 td {
-  background-color: #424242;
+  background-color: #424242; /* Fondo gris más oscuro */
   color: #ffffff;
 }
 
 .mat-header-center {
-  text-align: center; 
+  text-align: center; /* Centrar el contenido en el encabezado */
 }
 
 .mat-header-left {
-  text-align: left; 
-  padding-left: 20px; 
+  text-align: left; /* Alinear a la izquierda el encabezado */
+  padding-left: 20px;
 }
 
 .mat-cell-center {
-  text-align: center;
+  text-align: center; /* Centrar el contenido en las celdas */
 }
 
 .mat-cell-left {
-  text-align: left;
-  padding-left: 20px; 
+  text-align: left; /* Alinear a la izquierda el contenido en las celdas */
+  padding-left: 20px; /* Añadir margen a la izquierda */
 }
 
 button {
-  color: #61dafb; 
+  color: #61dafb; /* Azul claro */
 }
 
 button:hover {
-  color: #81e4ff; 
+  color: #81e4ff; /* Azul más claro */
 }
 
 .pagination-controls {
@@ -65,21 +66,65 @@ button:hover {
   flex-wrap: wrap;
 }
 
-@media (max-width: 600px) {
-  .container {
-    padding: 10px;
+/* Estilos para la vista móvil */
+.mobile-view {
+  display: none;
+}
+
+.character-card {
+  background-color: #3e3e3e;
+  border: 1px solid #61dafb;
+  border-radius: 8px;
+  padding: 15px;
+  margin-bottom: 15px;
+  color: #ffffff;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+}
+
+.character-card h2 {
+  margin-top: 0;
+  color: #61dafb;
+}
+
+.action-buttons {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  margin-top: 15px;
+}
+
+.action-buttons button {
+  width: 100%;
+  padding: 10px;
+  background-color: #0d47a1;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.action-buttons button:hover {
+  background-color: #1565c0;
+}
+
+/* Media query para cambiar entre vistas */
+@media (max-width: 768px) {
+  .desktop-view {
+    display: none;
   }
 
-  table {
-    width: 100%;
+  .mobile-view {
+    display: block;
+  }
+
+  .container {
+    padding: 10px;
   }
 
   .pagination-controls {
     flex-direction: column;
     align-items: center;
-  }
-
-  .pagination-controls span {
-    margin: 10px 0;
+    gap: 10px;
   }
 }

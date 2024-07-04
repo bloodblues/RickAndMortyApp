@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { RickAndMortyService } from '../../servicios/rick-and-morty.service';
 
 @Component({
@@ -12,6 +12,7 @@ export class DetallesPersonajeComponent implements OnInit {
 
   constructor(
     private route: ActivatedRoute,
+    private router: Router,
     private rickAndMortyService: RickAndMortyService
   ) { }
 
@@ -22,5 +23,9 @@ export class DetallesPersonajeComponent implements OnInit {
         this.character = character;
       });
     }
+  }
+
+  goBack(): void {
+    this.router.navigate(['/personajes']);
   }
 }
