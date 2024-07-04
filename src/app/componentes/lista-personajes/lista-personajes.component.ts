@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { RickAndMortyService } from '../../servicios/rick-and-morty.service';
 
 @Component({
@@ -9,44 +10,58 @@ import { RickAndMortyService } from '../../servicios/rick-and-morty.service';
 export class ListaPersonajesComponent implements OnInit {
   characters: any[] = [];
   displayedColumns: string[] = ['id', 'name', 'species', 'status', 'actions'];
-  totalPages: number = 0;
+  currentPageCharacters: any[] = [];
+  itemsPerPage: number = 5;
+  totalPages: number = 1;
   currentPage: number = 1;
 
-  constructor(private rickAndMortyService: RickAndMortyService) { }
+  constructor(private rickAndMortyService: RickAndMortyService, private router: Router) { }
 
   ngOnInit(): void {
+    this.rickAndMortyService.characters$.subscribe(characters => {
+      this.characters = characters;
+      this.totalPages = Math.ceil(this.characters.length / this.itemsPerPage);
+      console.log(`characters:${characters.length}| totalPages: ${this.totalPages}`);
+      this.loadCurrentPageCharacters();
+    });
     this.loadCharacters();
   }
 
-  loadCharacters(page: number = 1): void {
-    this.rickAndMortyService.getCharacters(page).subscribe(response => {
-      this.characters = response.results;
-      this.totalPages = response.info.pages;
-      this.currentPage = page;
-    });
+  loadCharacters(): void {
+    this.rickAndMortyService.loadCharacters().subscribe();
+  }
+
+  loadCurrentPageCharacters(): void {
+    const startIndex = (this.currentPage - 1) * this.itemsPerPage;
+    const endIndex = startIndex + this.itemsPerPage;
+    this.currentPageCharacters = this.characters.slice(startIndex, endIndex);
+    console.log(`currentPageCharacters: ${this.currentPageCharacters.length}`)
   }
 
   nextPage(): void {
     if (this.currentPage < this.totalPages) {
-      this.loadCharacters(this.currentPage + 1);
+      this.currentPage++;
+      this.loadCurrentPageCharacters();
     }
   }
 
   previousPage(): void {
     if (this.currentPage > 1) {
-      this.loadCharacters(this.currentPage - 1);
+      this.currentPage--;
+      this.loadCurrentPageCharacters();
     }
   }
 
   viewDetails(id: number): void {
-    // Navegar a los detalles del personaje
+    this.router.navigate(['/character', id]);
   }
 
   editCharacter(id: number): void {
-    // Navegar a la edición del personaje
+    this.router.navigate(['/edit-character', id]);
   }
 
   deleteCharacter(id: number): void {
-    // Eliminar el personaje 
+    this.rickAndMortyService.deleteCharacter(id);
+    this.loadCurrentPageCharacters();
   }
 }

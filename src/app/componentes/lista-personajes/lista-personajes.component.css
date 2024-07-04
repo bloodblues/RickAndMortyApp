@@ -1,28 +1,85 @@
 .container {
-    padding: 20px;
-    margin: auto;
-    max-width: 1200px;
+  padding: 20px;
+  margin: auto;
+  max-width: 1200px;
+  text-align: center;
+}
+
+table {
+  width: 100%;
+  margin: 20px auto;
+  background-color: #3e3e3e;
+  color: #ffffff;
+  border-collapse: collapse;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+}
+
+th, td {
+  padding: 15px;
+  border: 1px solid #61dafb; 
+}
+
+th {
+  background-color: #0d47a1; 
+  color: #ffffff;
+  font-weight: bold;
+  padding: 20px; 
+}
+
+td {
+  background-color: #424242;
+  color: #ffffff;
+}
+
+.mat-header-center {
+  text-align: center; 
+}
+
+.mat-header-left {
+  text-align: left; 
+  padding-left: 20px; 
+}
+
+.mat-cell-center {
+  text-align: center;
+}
+
+.mat-cell-left {
+  text-align: left;
+  padding-left: 20px; 
+}
+
+button {
+  color: #61dafb; 
+}
+
+button:hover {
+  color: #81e4ff; 
+}
+
+.pagination-controls {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 20px;
+  flex-wrap: wrap;
+}
+
+@media (max-width: 600px) {
+  .container {
+    padding: 10px;
   }
-  
+
+  table {
+    width: 100%;
+  }
+
   .pagination-controls {
-    display: flex;
-    justify-content: space-between;
+    flex-direction: column;
     align-items: center;
-    margin-top: 20px;
   }
-  
-  @media (max-width: 600px) {
-    .container {
-      padding: 10px;
-    }
-  
-    .pagination-controls {
-      flex-direction: column;
-      align-items: flex-start;
-    }
-  
-    .pagination-controls span {
-      margin: 10px 0;
-    }
+
+  .pagination-controls span {
+    margin: 10px 0;
   }
-  
+}

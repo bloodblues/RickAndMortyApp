@@ -1,1 +1,10 @@
-<p>detalles-personaje works!</p>
+<div *ngIf="character" class="container">
+    <h1>{{ character.name }}</h1>
+    <img [src]="character.image" alt="{{ character.name }}">
+    <p><strong>Especie:</strong> {{ character.species }}</p>
+    <p><strong>Estado:</strong> {{ character.status }}</p>
+    <p><strong>Género:</strong> {{ character.gender }}</p>
+    <p><strong>Origen:</strong> {{ character.origin.name }}</p>
+    <p><strong>Ubicación Actual:</strong> {{ character.location.name }}</p>
+</div>
+  

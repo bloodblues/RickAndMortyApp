@@ -1,0 +1,17 @@
+.container {
+    padding: 20px;
+    margin: auto;
+    max-width: 800px;
+    text-align: center;
+  }
+  
+  img {
+    max-width: 100%;
+    height: auto;
+    border-radius: 8px;
+  }
+  
+  p {
+    font-size: 18px;
+  }
+  
