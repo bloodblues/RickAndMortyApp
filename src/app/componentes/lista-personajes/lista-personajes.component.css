@@ -1,0 +1,28 @@
+.container {
+    padding: 20px;
+    margin: auto;
+    max-width: 1200px;
+  }
+  
+  .pagination-controls {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 20px;
+  }
+  
+  @media (max-width: 600px) {
+    .container {
+      padding: 10px;
+    }
+  
+    .pagination-controls {
+      flex-direction: column;
+      align-items: flex-start;
+    }
+  
+    .pagination-controls span {
+      margin: 10px 0;
+    }
+  }
+  
