@@ -83,27 +83,4 @@ export class RickAndMortyService {
       .subscribe(locations => this.locationsSubject.next(locations));
   }
 
-  saveImage(file: File): string {
-    const reader = new FileReader();
-    const fileName = `${uuidv4()}.${file.name.split('.').pop()}`;
-    const filePath = `assets/images/${fileName}`;
-
-    reader.onload = () => {
-      const result = reader.result as string;
-      this.saveImageToAssets(filePath, result);
-    };
-    reader.readAsDataURL(file);
-
-    return filePath;
-  }
-
-  private saveImageToAssets(path: string, data: string): void {
-    const blob = new Blob([data], { type: 'image/jpeg' }); // Asumimos jpeg, puede ser modificado
-    const a = document.createElement('a');
-    a.href = URL.createObjectURL(blob);
-    a.download = path;
-    document.body.appendChild(a);
-    a.click();
-    document.body.removeChild(a);
-  }
 }
